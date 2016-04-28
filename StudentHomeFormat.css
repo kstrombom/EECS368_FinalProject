@@ -1,0 +1,32 @@
+body
+{
+  background-image: url("http://3.bp.blogspot.com/-BaM3uIkquFY/VW_EU3yGhSI/AAAAAAAAAEA/d4ToD7_WOdA/s1600/school.gif");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+form
+{
+  background-color: #ff9900;
+  width: 25%;
+  text-align: center;
+  border-style: solid;
+  border-width: medium;
+}
+
+p
+{
+  font-size: 16pt;
+}
+
+a
+{
+  color: blue;
+  font-size: 15pt;
+}
+
+a:hover
+{
+  /*background-color: yellow;*/
+  color: #33cc33;
+}
