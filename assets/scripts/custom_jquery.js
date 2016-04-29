@@ -1,1 +1,5 @@
-//This is where we write out custom Jquery stuffz
+//Custom JQuery for EVERY page
+
+$( document ).ready(function(){
+ alert("loaded");
+});
