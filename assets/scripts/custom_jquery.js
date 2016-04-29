@@ -1,5 +1,5 @@
 //Custom JQuery for EVERY page
 
 $( document ).ready(function(){
- alert("loaded");
+ alert("WHOLE PAGE jquery functioning");
 }); 
