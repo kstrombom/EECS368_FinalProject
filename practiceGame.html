@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+
+	<!--
+
+	Sources: 
+
+	--bg picture: http://travelandphototoday.com/wp-content/uploads/ku-court-2.jpg
+	--basketball picture: http://pngimg.com/upload/basketball_PNG1099.png
+	--hoop picture: https://thetomatos.com/wp-content/uploads/2016/01/basketball-rim-png-clipart-best.png
+	--dragging code: http://stackoverflow.com/questions/15036386/make-image-drawn-on-canvas-draggable-with-javascript
+	--anything else: probably w3schools
+
+	-->
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+		<title>Practice Game v0.1</title>
+
+		<style>
+    			canvas { 
+				background:url(images/court.jpg);
+ 				background-size: 1000px, 600px;
+   				margin-left: auto;
+   				margin-right: auto;
+   				display: block;
+			}
+
+			.myButton {
+				-moz-box-shadow:inset 0px -4px 5px 0px #29bbff;
+				-webkit-box-shadow:inset 0px -4px 5px 0px #29bbff;
+				box-shadow:inset 0px -4px 5px 0px #29bbff;
+				background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+				background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+				background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+				background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+				background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+				background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+				background-color:#2dabf9;
+				-moz-border-radius:8px;
+				-webkit-border-radius:8px;
+				border-radius:8px;
+				display:inline-block;
+				cursor:pointer;
+				color:#ffffff;
+				font-family:Arial;
+				font-size:28px;
+				padding:8px 12px;
+				text-decoration:none;
+				text-shadow:0px 1px 5px #263666;
+			}
+			
+			.myButton:hover {
+				background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+				background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+				background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+				background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+				background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+				background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+				background-color:#0688fa;
+			}
+			
+			.myButton:active {
+				position:relative;
+				top:1px;
+			}	
+		</style>
+
+		<script>
+			function canvasFunc(){
+				//creates actual bball and hoop objects
+    				var ball = new Image();
+				var hoop1 = new Image();
+				var hoop2 = new Image();
+				var hoop3 = new Image();
+
+				//when page loads, position objects
+				ball.onload = function(){
+        				ctx.drawImage(ball, 450, 475);
+    				}
+    				ball.src = "images/ball.png";
+
+				hoop1.onload = function(){
+					ctx.drawImage(hoop1, 80, 25);
+					ctx.fillText("100", (80+175/2), (175/2)); 
+				}
+				hoop1.src = "images/hoop.png";
+				
+				hoop2.onload = function(){
+					ctx.drawImage(hoop2, 410, 25);
+					ctx.fillText("250", (410+175/2), (175/2));
+				}
+				hoop2.src = "images/hoop.png";
+				
+				hoop3.onload = function(){
+					ctx.drawImage(hoop3, 730, 25);
+					ctx.fillText("967", (730+175/2), (175/2));
+				}
+				hoop3.src = "images/hoop.png";
+    				
+				
+				var canvas=document.getElementById("canvas");
+    				var ctx=canvas.getContext("2d");
+    				var canvasOffset=$("#canvas").offset();
+    				var offsetX=canvasOffset.left;
+    				var offsetY=canvasOffset.top;
+    				var canvasWidth=canvas.width;
+    				var canvasHeight=canvas.height;
+    				var isDragging=false;
+
+				function question(){
+					//this is an example of how we would do random questions
+					return "Practice Question, answer is 100";
+				}
+
+				//text tests--------
+				ctx.font = "30px Stencil";
+				ctx.fillStyle = "black";
+				ctx.textAlign = "center";
+				ctx.fillText(question(), canvas.width/2, canvas.height/2);
+				//------------------
+
+				//when mouse is clicked
+    				function handleMouseDown(e){
+      					canMouseX=parseInt(e.clientX-offsetX);
+      					canMouseY=parseInt(e.clientY-offsetY);
+      					isDragging=true;
+    				}
+
+				//when mouse is unclicked 
+    				function handleMouseUp(e){
+      					canMouseX=parseInt(e.clientX-offsetX);
+      					canMouseY=parseInt(e.clientY-offsetY);
+      					isDragging=false;
+    				}
+
+				//mouse leaves canvas area
+    				function handleMouseOut(e){
+      					canMouseX=parseInt(e.clientX-offsetX);
+      					canMouseY=parseInt(e.clientY-offsetY);
+    				}
+
+				//while dragging ball
+    				function handleMouseMove(e){
+      					canMouseX=parseInt(e.clientX-offsetX);
+      					canMouseY=parseInt(e.clientY-offsetY);
+      					if(isDragging){
+						//clear screen, reposition everything with new ball position
+          					ctx.clearRect(0,0,canvasWidth,canvasHeight);
+						ctx.drawImage(hoop1, 80, 25);
+						ctx.drawImage(hoop2, 410, 25);
+						ctx.drawImage(hoop3, 730, 25);
+						ctx.fillText("100", (80+175/2), (175/2));
+						ctx.fillText("250", (410+175/2), (175/2));
+						ctx.fillText("967", (730+175/2), (175/2));
+						ctx.fillText(question(), canvas.width/2, canvas.height/2);
+          					ctx.drawImage(ball,canMouseX-100/2,canMouseY-100/2);
+						collide(canMouseX-100/2,canMouseY-100/2);
+      					}
+    				}
+
+				//checks if ball is in hoops
+				function collide(x,y){
+					if( x >= 60 && x < 140 &&
+					    y >= 25 && y < 75 ){
+
+						alert("correct!");
+
+					}else if( x >= 390 && x < 470 &&
+						  y >= 25 && y < 75 ){
+
+						alert("wrong!");
+
+					}else if( x >= 710 && x < 790 &&
+						  y >= 25 && y < 75 ){
+
+						alert("wrong!");
+					}
+				}
+
+    				$("#canvas").mousedown(function(e){handleMouseDown(e);});
+    				$("#canvas").mousemove(function(e){handleMouseMove(e);});
+    				$("#canvas").mouseup(function(e){handleMouseUp(e);});
+    				$("#canvas").mouseout(function(e){handleMouseOut(e);});
+
+			}
+		</script>
+
+	</head>
+
+	<body>
+	
+		<h2 style="text-align:center">Practice Game</h2>
+
+		<div style="text-align:center">
+			<a class="myButton" onClick="canvasFunc()">Play Game!</a>
+		</div>
+
+		<br>
+    		<canvas id="canvas" width=1000 height=600></canvas>
+		<h2>Notes and to-do list: </h2>
+			<ul>
+				<li>might have to click Play Game! more than once</li>
+				<li>still works if you resize the window (up to a point) but you have to refresh the page</li>
+				<li>all this is one html file right now, i'll split up the css/whatever else when its done</li>
+				<li>make q's and a's random</li>
+				<li>scoring? timer?</li> 
+			</ul>
+	</body>
+</html>
