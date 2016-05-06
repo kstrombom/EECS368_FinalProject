@@ -1,23 +1,48 @@
+<!doctype html>
 <html>
-    <head>
-  <script type="text/javascript" src="assets/scripts/jquery-1.12.3.js"></script>
-  <script type="text/javascript" src="assets/scripts/custom_jquery.js"></script>
-        <title>Practice Page</title>
-    </head>
-    
-    <body>
-        
-        <h1>Pratice.html</h1>
-        
-       
-            Question:<br>
-            <p id="question_body"></p>
-            <input type="radio" name="radioBtn" id="optionA"><br>
-            <input type="radio" name="radioBtn" id="optionB"><br>
-            <input type="radio" name="radioBtn" id="optionC"><br>
-            
-            <input type="submit" id="submitBtn" value="Submit" onClick="alert('click')">
-        
-        
-    </body>
+	<!--
+	Sources: 
+	--bg picture: http://travelandphototoday.com/wp-content/uploads/ku-court-2.jpg
+	--basketball picture: http://pngimg.com/upload/basketball_PNG1099.png
+	--hoop picture: https://thetomatos.com/wp-content/uploads/2016/01/basketball-rim-png-clipart-best.png
+	--dragging code: http://stackoverflow.com/questions/15036386/make-image-drawn-on-canvas-draggable-with-javascript
+	--anything else: probably w3schools
+	-->
+
+	<head>
+		<meta charset="UTF-8">
+	 	<link rel="stylesheet" type="text/css" href="assets/styles/practice.css">
+	 	
+		<script type="text/javascript" src="assets/scripts/jquery-1.12.3.js"></script> 
+		<script defer src="assets/scripts/praticePage.js"></script>
+		<script defer src="assets/scripts/problem.js"></script>
+		<title>Practice Game v0.1</title>
+
+
+
+		<script>
+			
+		</script>
+
+	</head>
+
+	<body>
+	
+		<h2 style="text-align:center">Practice Game</h2>
+
+		<div style="text-align:center">
+			<a class="myButton" onClick=canvasFunc()>Play Game!</a>
+		</div>
+
+		<br>
+    		<canvas id="canvas" width=1000 height=600></canvas>
+		<h2>Notes and to-do list: </h2>
+			<ul>
+				<li>might have to click Play Game! more than once</li>
+				<li>still works if you resize the window (up to a point) but you have to refresh the page</li>
+				<li>all this is one html file right now, i'll split up the css/whatever else when its done</li>
+				<li>make q's and a's random</li>
+				<li>scoring? timer?</li> 
+			</ul>
+	</body>
 </html>
