@@ -29,6 +29,4 @@ problem.generate = function() {
         this.options[1] = this.xVal * this.yVal + Math.floor((Math.random() * 3) + 1);
         this.options[2] = this.xVal * this.yVal - Math.floor((Math.random() * 3) + 1);
     }
-    alert(this.question + "");
-    alert(this.options[0] + " ," + this.options[1] + ", " + this.options[2]);
 };
