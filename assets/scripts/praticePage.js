@@ -1,5 +1,3 @@
-
-
 function canvasFunc() {
     problem.generate();
     //creates actual bball and hoop objects

@@ -1,7 +1,8 @@
-gameEngine = {
+gameEngine = {};
+gameEngine.score = 0;
+gameEngine.record = [0, 0];
+gameEngine.problem = problem.generate();
+
+gameEngine.newProblem = function() {
     this.problem = problem.generate();
-    this.score = 0;
-    this.problemCount[0,0]; //total and correct
 };
-
-

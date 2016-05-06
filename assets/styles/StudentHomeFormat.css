@@ -1,11 +1,9 @@
-body
-{
+body {
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
-form
-{
+form {
   background-color: #ff9900;
   width: 25%;
   text-align: center;
@@ -13,19 +11,16 @@ form
   border-width: medium;
 }
 
-p
-{
+p {
   font-size: 16pt;
 }
 
-a
-{
+a {
   color: blue;
   font-size: 15pt;
 }
 
-a:hover
-{
+a:hover {
   /*background-color: yellow;*/
   color: #33cc33;
 }
