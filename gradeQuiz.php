@@ -12,6 +12,11 @@ resources:
   <title> Quiz Results </title>
 </head>
 
+<!--
+set up grading page.
+display questions along with the student answers.
+at the end, display the total number of questions, the total number correct, and the percentage scored (rounded to 2 decimal places).
+-->
 <body>
   <h1> Quiz Results </h1>
 
@@ -25,8 +30,10 @@ resources:
     exit();
   }
 
+  //get access code from POST
   $code = $_POST["quizCode"];
 
+  //query SQL table "QuizQuestions" for the list of quiz questions associated with the access code
   $query = "SELECT id, quiz_name, teacher, q_number, q_text, q_answer FROM QuizQuestions WHERE access_code='$code' ORDER BY q_number ASC;";
 
   if($result = $mysqli->query($query))
@@ -37,6 +44,7 @@ resources:
     }
     else
     {
+      //put questions, correct answers, and student answers into arrays
       $questionArray = array();
       $questionAnswers = array();
       $studentAnswers = array();
@@ -51,19 +59,23 @@ resources:
       $max = count($questionArray);
       $numCorrect = 0;
 
+      //display questions and student answers
       for($i = 0; $i < $max; $i++)
       {
         echo "Question ".($i+1).": ".$questionArray[$i]."<br>";
         echo "Your answer: ".$studentAnswers[$i]."<br><br>";
 
+        //keep track of number of questions the student answered correctly
         if($questionAnswers[$i] == $studentAnswers[$i])
         {
           $numCorrect++;
         }
       }
 
+      //calculate percentage grade
       $percentage = round(($numCorrect/$max)*100,2);
 
+      //display total number of questions, total number of correct answers, and percentage grade
       echo "Total number of questions: ".$max."<br>";
       echo "Number of correct answers: ".$numCorrect."<br>";
       echo "Grade: ".$percentage."% <br>";
