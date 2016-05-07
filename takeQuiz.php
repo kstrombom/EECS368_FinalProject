@@ -3,18 +3,18 @@
 author: Josiah Gray
 
 resources:
-help checking if query returns nothing from stack overflow. http://stackoverflow.com/questions/8417192/how-would-i-check-if-values-returned-from-an-sql-php-query-are-empty
+help checking if query returns nothing from stack overflow. http://stackoverflow.com/questions/21258620/check-if-the-query-results-empty-row-mysqli
 */
 ?>
 
 <?php
 function setupQuestion($row){
-  echo $row["q_number"].") ".$row["q_text"]." ".$row["q_answer"]."<br><br>";
+  echo $row["q_number"].") ".$row["q_text"]." ";
+  echo "<input type='number' maxlength='6' size='6' id='Q".$row["q_number"]."' name='Q".$row["q_number"]."'> <br><br>";
 }
 ?>
 
 <html>
-
 <head>
   <title> Quiz </title>
 </head>
@@ -38,29 +38,33 @@ function setupQuestion($row){
 
   if($result = $mysqli->query($query))
   {
-    if(mysql_num_rows($result) != 0)
+    if($result->num_rows === 0)
     {
-      while($row = $result->fetch_assoc())
-      {
-        setupQuestion($row);
-      }
+      echo "ERROR: invalid quiz code.<br>";
     }
     else
     {
-      echo "ERROR: invalid quiz code.<br>";
+      echo "<form action='gradeQuiz.php' method='post'>";
+
+      while($row = $result->fetch_array())
+      {
+        setupQuestion($row);
+      }
+
+      echo "<input type='submit' value='Grade Quiz'>";
+      echo "</form>";
     }
 
     //free result set
     $result->free();
   }
 
-
   //close connection
   $mysqli->close();
   ?>
 
   <br>
-  <a href="studentHome.html"> Return to UserHome page </a>
+  <a href="studentHome.html"> Return to Student Home page </a>
 </body>
 
 </html>
