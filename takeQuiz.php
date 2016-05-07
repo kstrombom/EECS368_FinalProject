@@ -4,6 +4,7 @@ author: Josiah Gray
 
 resources:
 help checking if query returns nothing from stack overflow. http://stackoverflow.com/questions/21258620/check-if-the-query-results-empty-row-mysqli
+help checking textbox entries before submitting from stack overflow. http://stackoverflow.com/questions/15997632/check-textbox-before-submitting
 */
 ?>
 
@@ -17,6 +18,21 @@ function setupQuestion($row){
 <html>
 <head>
   <title> Quiz </title>
+
+  <script type="text/javascript">
+    function checkForm()
+    {
+      var studentName = (document.getElementById("studentName").value).trim();
+
+      if(studentName == "")
+      {
+        alert("You need to enter your name.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
 </head>
 
 <body>
@@ -34,7 +50,7 @@ function setupQuestion($row){
 
   $code = $_POST["quizCode"];
 
-  $query = "SELECT id, q_number, q_text, q_answer FROM QuizQuestions WHERE access_code='$code' ORDER BY q_number ASC;";
+  $query = "SELECT id, quiz_name, teacher, q_number, q_text, q_answer FROM QuizQuestions WHERE access_code='$code' ORDER BY q_number ASC;";
 
   if($result = $mysqli->query($query))
   {
@@ -44,7 +60,12 @@ function setupQuestion($row){
     }
     else
     {
-      echo "<form action='gradeQuiz.php' method='post'>";
+      echo "<form action='gradeQuiz.php' method='post' onSubmit='return checkForm();'>";
+
+      echo "<input type='hidden' value='".$code."' id='quizCode' name='quizCode'>";
+
+      echo "Enter your name: ";
+      echo "<input type='text' id='studentName' name='studentName'> <br><br>";
 
       while($row = $result->fetch_array())
       {
