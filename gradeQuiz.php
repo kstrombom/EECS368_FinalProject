@@ -30,6 +30,8 @@ at the end, display the total number of questions, the total number correct, and
     exit();
   }
 
+  //get student name from POST
+  $studentName = $_POST["studentName"];
   //get access code from POST
   $code = $_POST["quizCode"];
 
@@ -78,11 +80,23 @@ at the end, display the total number of questions, the total number correct, and
       //display total number of questions, total number of correct answers, and percentage grade
       echo "Total number of questions: ".$max."<br>";
       echo "Number of correct answers: ".$numCorrect."<br>";
-      echo "Grade: ".$percentage."% <br>";
+      echo "Grade: ".$percentage."% <br><br>";
     }
 
     //free result set
     $result->free();
+  }
+
+  $query = "INSERT INTO StudentScores (student_name, access_code, score) VALUES ('$studentName', '$code', '$percentage');";
+
+  //attempt to insert username into database
+  if($result = $mysqli->query($query))
+  {
+    echo "Your score was successfully saved!<br>";
+  }
+  else
+  {
+    echo "ERROR: your score could not be saved.<br>";
   }
 
   //close connection
