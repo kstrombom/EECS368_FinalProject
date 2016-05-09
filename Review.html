@@ -1,0 +1,62 @@
+<html>
+ <head>
+  <title>Overview Page</title>
+ </head>
+ <body>
+
+
+
+    <form action = "Review_Delete.php" id="delete" method = "post">
+
+    <table name="QuizList">
+        <tr>
+        <td>Delete?</td>
+        <td>Name</td>
+        <td>Access Code</td>
+        </tr>
+
+       <?php
+
+       $user=$_GET['user'];
+
+            $mysqli = new mysqli("mysql.eecs.ku.edu", "jgray", "jgray1", "jgray");
+
+        if ($mysqli->connect_errno)
+        {
+            echo "printf('Connect failed: %s\n', $mysqli->connect_error)";
+            exit();
+        }
+
+        $select = "SELECT name,access FROM Quizzes WHERE teacher='$user'";
+        $result = $mysqli -> query($select);
+        $num = $result -> num_rows;
+
+        for($i=0; $i<$num; $i++)
+        {
+            $row = $result -> fetch_assoc();
+            $name = $row["name"];
+            $access = $row ["access"];
+
+            echo "<tr>";
+            echo "<td><input type='checkbox' name='quizzes[]' value=".$access."></td>";
+            echo "<td>$name</td>";
+            echo "<td>$access</td>";
+            echo "</tr>";
+        }
+
+       $mysqli->close();
+
+       echo "<input type='hidden' name='user' value='$user'>";
+       ?>
+    </table>
+
+    <input type="submit" value="Delete" >
+    </form>
+
+
+    <br><br>
+    <a href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/CreateQuiz.html?user=<?php echo $user; ?>">Create Quiz Here</a>
+    <br><br>
+
+ </body>
+</html>

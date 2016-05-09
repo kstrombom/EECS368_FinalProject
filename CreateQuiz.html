@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style>
+
+    input[type=text],input[type=number]
+    {
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 100%;
+    }
+
+    body
+    {
+      color: #2A17B1;
+      font-weight:bold;
+      font-family:Arial;
+      background-color: #7D71D8;
+    }
+
+    button
+    {
+      background-color:#2A17B1;
+      color: white;
+      font-size: 120%;
+      border-radius: 8px;
+      border: none;
+    }
+    input[type=submit]
+    {
+      background-color:#150873;
+      color: white;
+      font-size: 120%;
+      border-radius: 8px;
+      border: none;
+    }
+
+    </style>
+
+    <script>
+
+    var counter = 1;
+    var limit = 20;
+
+    function addInput(divName)
+    {
+     if (counter == limit)
+     {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else
+     {
+          var newdiv = document.createElement('div');
+          var newdiv2 = document.createElement('div');
+          newdiv.innerHTML = "Question " + (counter + 1) + "<br><input type='text' name='Questions[]'><br>";
+          newdiv2.innerHTML = "Answer " + (counter + 1) + "<br><input type='number' name='Answers[]'><br><br>";
+          document.getElementById(divName).appendChild(newdiv);
+          document.getElementById(divName).appendChild(newdiv2);
+          counter++;
+     }
+    }
+    </script>
+
+  </head>
+
+
+  <body>
+
+    <form action = "CreateQuiz.php" name="Questions" method = "post">
+      <span style="color: #150873; font-size:120%;"> Quiz Name</span><br>
+      <input name="QuizName" type="text"><br><br><br>
+
+      <?php
+
+      $user=$_GET['user'];
+      echo "<input type='hidden' name='user' value='$user'>";
+      ?>
+
+
+      <div id="dynamicInput">
+        Question 1<br><input name ="Questions[]" type="text"><br>
+        Answer 1<br><input name = "Answers[]" type="number"><br><br>
+      </div>
+      <input name = "submit" type="submit" value = "Create Quiz">
+    </form>
+
+    <button type="button" onclick="addInput('dynamicInput');">Add a question</button>
+
+
+  </body>
+</html>
