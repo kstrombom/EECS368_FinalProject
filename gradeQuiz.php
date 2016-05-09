@@ -87,6 +87,7 @@ at the end, display the total number of questions, the total number correct, and
     $result->free();
   }
 
+  //store student name, quiz code, and score in the StudentScores table in the database
   $query = "INSERT INTO StudentScores (student_name, access_code, score) VALUES ('$studentName', '$code', '$percentage');";
 
   //attempt to insert username into database
