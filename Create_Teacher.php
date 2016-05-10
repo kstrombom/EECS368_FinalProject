@@ -7,12 +7,12 @@ $password = $_POST["password"];
 if(strlen($password)>10)
 {
   echo "<p>Password must be a string less than 10 characters</p>";
-  echo "<a href='http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Create_Teacher.html'>Click here to create login</a>";
+  echo "<a href='Create_Teacher.html'>Click here to create login</a>";
 }
 else if($username=="" || $password=="")
 {
   echo "<p>There is an empty field, retry login</p>";
-  echo "<a href='http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Create_Teacher.html'>Click here to create login</a>";
+  echo "<a href='Create_Teacher.html'>Click here to create login</a>";
 }
 else
 {
@@ -33,7 +33,7 @@ else
       	if($result -> num_rows != 0)
       	{
           echo '<p>Username duplicate, your login was not created</p><br>';
-          echo "<a href='http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Create_Teacher.html'>Click here to create login</a>";
+          echo "<a href='Create_Teacher.html'>Click here to create login</a>";
 
       	}
       	//if OK to add
@@ -42,7 +42,7 @@ else
       		//add to table
       		$mysqli -> query ("INSERT INTO TeacherLogin (username,password) VALUES ('$username','$password')");
           echo '<p>"Login created!"</p>';
-          echo '<a href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Teacher_Login.html"> Click here to login</a>';
+          echo '<a href="Teacher_Login.html"> Click here to login</a>';
         }
 
       //close sql connection

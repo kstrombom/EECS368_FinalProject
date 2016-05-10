@@ -81,8 +81,8 @@ a.button
 
             echo "<tr>";
             echo "<td><input type='checkbox' name='quizzes[]' value=".$access."></td>";
-            echo "<td><a href= 'http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/QuizReview.html?user=$user&&access=$access'>$name</a></td>";
-            echo "<td><a href= 'http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/StudentResults.html?user=$user&&access=$access'>$access</a></td>";
+            echo "<td><a href= 'QuizReview.html?user=$user&&access=$access'>$name</a></td>";
+            echo "<td><a href= 'StudentResults.html?user=$user&&access=$access'>$access</a></td>";
             echo "</tr>";
         }
 
@@ -98,7 +98,7 @@ a.button
 
     <br>
     <br>
-    <a class="button" href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/CreateQuiz.html?user=<?php echo $user; ?>">Create Quiz Here</a>
+    <a class="button" href="CreateQuiz.html?user=<?php echo $user; ?>">Create Quiz Here</a>
     <br><br>
 
  </body>

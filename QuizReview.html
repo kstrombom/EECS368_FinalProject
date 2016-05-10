@@ -71,7 +71,7 @@
 
 
   <?php
-  $select = "SELECT q_number,q_text,q_answer FROM QuizQuestions WHERE access_code='$access'";
+  $select = "SELECT q_number,q_text,q_answer FROM QuizQuestions WHERE access_code='$access' ORDER BY q_number ASC";
   $result = $mysqli -> query($select);
   $num=$result->num_rows;
 
@@ -87,7 +87,7 @@
     echo "<tr>";
     echo "<td>$number</td>";
     echo "<td>$question</td>";
-    echo "<td>answer</td>";
+    echo "<td>$answer</td>";
     echo "</tr>";
 
   }
@@ -95,7 +95,7 @@
   ?>
 </table>
 <br><br>
-<a class="button" href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Review.html?user=<?php echo $user; ?>">Return to Homepage</a>
+<a class="button" href="Review.html?user=<?php echo $user; ?>">Return to Homepage</a>
 
   </body>
 </html>

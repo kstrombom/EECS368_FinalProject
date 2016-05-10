@@ -67,6 +67,6 @@ for($i=0;$i<$lengthOfQuestions;$i++)
   echo "Answers ".($i+1).": ".$Answers[$i]."<br><br>";
 }
 
-echo "<a href='http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Review.html?user=".$user."'>Return to homepage</a>";
+echo "<a href='Review.html?user=".$user."'>Return to homepage</a>";
 
 ?>

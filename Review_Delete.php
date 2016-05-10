@@ -28,5 +28,5 @@
       $mysqli->close();
 
       //refresh html page
-      header("Location: http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Review.html?user=$user");
+      header("Location: Review.html?user=$user");
   ?>

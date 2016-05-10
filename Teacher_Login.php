@@ -19,14 +19,14 @@ $pass = $_POST["password"];
     if($result -> num_rows != 0)
     {
       //redirect
-        header('Location: http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Review.html?user='.$user);
+        header('Location: Review.html?user='.$user);
 
     }
     //if OK to add
     else
     {
       echo "<p>User or password not recognized</p>";
-      echo "<a href='http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Teacher_Login.html'> Click here to login</a>";
+      echo "<a href='Teacher_Login.html'> Click here to login</a>";
     }
 
   //close sql connection
