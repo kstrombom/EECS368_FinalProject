@@ -96,7 +96,7 @@ for a valid access code, query an SQL table for all questions associated with th
   ?>
 
   <br>
-  <a href="studentHome.html"> Return to Student Home page </a>
+  <a href="Home.html"> Return to Student Home page </a>
 </body>
 
 </html>

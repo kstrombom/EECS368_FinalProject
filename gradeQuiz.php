@@ -105,7 +105,7 @@ at the end, display the total number of questions, the total number correct, and
   ?>
 
   <br>
-  <a href="studentHome.html"> Return to Student Home page </a>
+  <a href="Home.html"> Return to Student Home page </a>
 </body>
 
 </html>
