@@ -30,8 +30,9 @@
       background-color: #480000;
       color: white;
   }
-  a.button
+  a
   {
+    background-color: #480000;
     color: white;
     font-weight: bold;
     padding: 10px 20px;
@@ -101,13 +102,14 @@
 
       }
 
-      mysqli->close();
+      $mysqli->close();
 
     ?>
   </table>
   <br>
   <br>
 
-  <a class="button" href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Review.html?user=<?php echo $user; ?>">Return to homepage</a>
+  <a href="Review.html?user=<?php echo $user; ?>">Return to homepage</a>
+
   </body>
 </html>
