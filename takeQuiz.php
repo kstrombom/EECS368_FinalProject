@@ -59,7 +59,7 @@ for a valid access code, query an SQL table for all questions associated with th
   $code = $_POST["quizCode"];
 
   //query SQL table "QuizQuestions" for the list of quiz questions associated with the access code
-  $query = "SELECT id, quiz_name, teacher, q_number, q_text, q_answer FROM QuizQuestions WHERE access_code='$code' ORDER BY q_number ASC;";
+  $query = "SELECT id, quiz_name, access_code, teacher, q_number, q_text, q_answer FROM QuizQuestions WHERE access_code='$code' ORDER BY q_number ASC;";
 
   if($result = $mysqli->query($query))
   {
