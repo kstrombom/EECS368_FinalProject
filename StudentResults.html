@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>Student Scores</title>
+    <meta content="">
+    <style>
+    body
+    {
+      font-family: Arial;
+    }
+
+  table
+  {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td,tfoot
+  {
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even)
+  {
+    background-color: #f2f2f2
+  }
+
+  th,tfoot
+  {
+      background-color: #480000;
+      color: white;
+  }
+  a.button
+  {
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  </style>
+  </head>
+  <body>
+
+    <table name="QuizList">
+        <tr>
+        <th>Student</th>
+        <th>Score</th>
+        </tr>
+
+    <?php
+      $user=$_GET['user'];
+      $access=$_GET['access'];
+
+      //opens connection to sql
+      $mysqli = new mysqli("mysql.eecs.ku.edu", "jgray", "jgray1", "jgray");
+
+      //if connection to sql fails
+      if ($mysqli->connect_errno)
+      {
+        echo "printf('Connect failed: %s\n', $mysqli->connect_error)";
+        exit();
+      }
+
+      $select="SELECT name FROM Quizzes WHERE access='$access'";
+      $result = $mysqli -> query($select);
+
+      $quizName = $result->fetch_assoc()["name"];
+      echo "<h2>$quizName - Student Scores</h2>";
+
+      $select="SELECT * FROM StudentScores WHERE access_code='$access'";
+      $result = $mysqli -> query($select);
+
+      $num = $result -> num_rows;
+      $average = 0;
+
+      if($num==0)
+      {
+        echo "<p>No student has taken the exam yet</p>";
+      }
+      else
+      {
+        for($i=0; $i<$num; $i++)
+        {
+            $row = $result -> fetch_assoc();
+            $student = $row["student_name"];
+            $score = $row ["score"];
+            $average += $score;
+            echo "<tr>";
+            echo "<td>$student</td>";
+            echo "<td>$score %</td>";
+            echo "</tr>";
+        }
+
+        $average = $average/$num;
+        echo "<tfoot>";
+        echo "<tr>";
+        echo "<td>Average</td>";
+        echo "<td>$average %</td>";
+        echo "</tr>";
+        echo "</tfoot>";
+
+      }
+
+      mysqli->close();
+
+    ?>
+  </table>
+  <br>
+  <br>
+
+  <a class="button" href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/Review.html?user=<?php echo $user; ?>">Return to homepage</a>
+  </body>
+</html>

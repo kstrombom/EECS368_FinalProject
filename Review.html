@@ -1,18 +1,60 @@
+<!-- Styling from W3Schools-->
+
 <html>
  <head>
   <title>Overview Page</title>
+
+  <style>
+
+body
+{
+  font-family: Arial;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td
+{
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even)
+{
+  background-color: #f2f2f2
+}
+
+th
+{
+    background-color: #480000;
+    color: white;
+}
+a.button
+{
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  background-color: #480000;
+  border: 0;
+  border-radius: 4px;
+}
+</style>
+
  </head>
- <body>
-
-
-
+   <h2>Quizzes</h2>
+   <small>*Click the access code to view student results</small><br>
+   <small>*Click the name to view the quiz created</small>
     <form action = "Review_Delete.php" id="delete" method = "post">
 
     <table name="QuizList">
         <tr>
-        <td>Delete?</td>
-        <td>Name</td>
-        <td>Access Code</td>
+        <th>Delete?</th>
+        <th>Name</th>
+        <th>Access Code</th>
         </tr>
 
        <?php
@@ -39,8 +81,8 @@
 
             echo "<tr>";
             echo "<td><input type='checkbox' name='quizzes[]' value=".$access."></td>";
-            echo "<td>$name</td>";
-            echo "<td>$access</td>";
+            echo "<td><a href= 'http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/QuizReview.html?user=$user&&access=$access'>$name</a></td>";
+            echo "<td><a href= 'http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/StudentResults.html?user=$user&&access=$access'>$access</a></td>";
             echo "</tr>";
         }
 
@@ -54,8 +96,9 @@
     </form>
 
 
-    <br><br>
-    <a href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/CreateQuiz.html?user=<?php echo $user; ?>">Create Quiz Here</a>
+    <br>
+    <br>
+    <a class="button" href="http://people.eecs.ku.edu/~kstrombo/EECS368_FinalProject/CreateQuiz.html?user=<?php echo $user; ?>">Create Quiz Here</a>
     <br><br>
 
  </body>

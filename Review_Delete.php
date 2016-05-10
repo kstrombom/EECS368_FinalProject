@@ -20,6 +20,8 @@
          $mysqli->query($delete);
          $delete = "DELETE FROM QuizQuestions WHERE access_code = '$quizArray[$i]'";
          $mysqli->query($delete);
+         $delete = "DELETE FROM StudentScores WHERE access_code = '$quizArray[$i]'";
+         $mysqli->query($delete);
      }
 
      //close sql connection
