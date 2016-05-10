@@ -127,15 +127,15 @@ function canvasFunc() {
 			ctx.drawImage(hoop1, 80, 25);
 			ctx.drawImage(hoop2, 410, 25);
 			ctx.drawImage(hoop3, 730, 25);
-			if(correctOption == 0){
+			if(correctOption == 0 && bool == true){
 				ctx.fillText(problem.options[0], (80 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[1], (410 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[2], (730 + 175 / 2), (175 / 2));
-			}else if(correctOption == 1){
+			}else if(correctOption == 1 && bool == true){
 				ctx.fillText(problem.options[1], (80 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[0], (410 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[2], (730 + 175 / 2), (175 / 2));
-			}else if(correctOption == 2){
+			}else if(correctOption == 2 && bool == true){
 				ctx.fillText(problem.options[1], (80 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[2], (410 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[0], (730 + 175 / 2), (175 / 2));
@@ -151,16 +151,19 @@ function canvasFunc() {
 				ctx.fillRect(425, 450, 150, 150);
 				ctx.fillStyle = "black";
 				if(isCorrect){
-					ctx.fillText("Correct!", canvasWidth/2, 525);
-					ctx.fillText("+2 pts", canvasWidth/2, 550);
+					ctx.fillText("Correct!", canvasWidth/2, 500);
+					ctx.fillText("+2 pts", canvasWidth/2, 525);
+					ctx.fillText("Drag Here", canvasWidth/2, 575);
 				}else{
-					ctx.fillText("Wrong!", canvasWidth/2, 525);
-					ctx.fillText("-2 pts", canvasWidth/2, 550);
+					ctx.fillText("Wrong!", canvasWidth/2, 500);
+					ctx.fillText("-2 pts", canvasWidth/2, 525);
+					ctx.fillText("Drag Here", canvasWidth/2, 575);
 				}
 			}
-			//ctx.fillRect(425, 450, 150, 150);
-			ctx.fillStyle = "black";
-			ctx.fillText(question(), canvas.width / 2, canvas.height / 2);
+			if(bool == true){
+				ctx.fillStyle = "black";
+				ctx.fillText(question(), canvas.width / 2, canvas.height / 2);
+			}
 			ctx.fillText("Score: " + score, 75, 585);
 			ctx.drawImage(ball, canMouseX - 100 / 2, canMouseY - 100 / 2);
 			//check if ball is in correct spot
