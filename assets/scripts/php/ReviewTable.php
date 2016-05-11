@@ -1,40 +1,42 @@
-       <? php
-       $user = $_GET['user'];
+       <?php
+       $user=$_GET['user'];
 
-       $mysqli = new mysqli("mysql.eecs.ku.edu", "jgray", "jgray1", "jgray");
+            $mysqli = new mysqli("mysql.eecs.ku.edu", "jgray", "jgray1", "jgray");
 
-       if ($mysqli - > connect_errno) {
-           echo "printf('Connect failed: %s\n', $mysqli->connect_error)";
-           exit();
-       }
+        if ($mysqli->connect_errno)
+        {
+            echo "printf('Connect failed: %s\n', $mysqli->connect_error)";
+            exit();
+        }
 
-       $select = "SELECT name,access FROM Quizzes WHERE teacher='$user'";
-       $result = $mysqli - > query($select);
-       $num = $result - > num_rows;
+        $select = "SELECT name,access FROM Quizzes WHERE teacher='$user'";
+        $result = $mysqli -> query($select);
+        $num = $result -> num_rows;
+        
+        echo"<table  class='table table-bordered' name='QuizList'>";
+        echo"<thead class='thead-inverse'>";
+        echo"<tr>";
+        echo"<th>Delete?</th>";
+        echo"<th>Name</th>";
+        echo"<th>Access Code</th>";
+        echo"</tr>";
+        echo"</thead>;<tbody>";
+        for($i=0; $i<$num; $i++)
+        {
+            $row = $result -> fetch_assoc();
+            $name = $row["name"];
+            $access = $row ["access"];
 
-       echo "<table  class='table table-bordered' name='QuizList'>";
-       echo "<thead class='thead-inverse'>";
-       echo "<tr>";
-       echo "<th>Delete?</th>";
-       echo "<th>Name</th>";
-       echo "<th>Access Code</th>";
-       echo "</tr>";
-       echo "</thead>;<tbody>";
-       for ($i = 0; $i < $num; $i++) {
-           $row = $result - > fetch_assoc();
-           $name = $row["name"];
-           $access = $row["access"];
+            echo "<tr>";
+            echo "<td><input type='checkbox' name='quizzes[]' value=".$access."></td>";
+            echo "<td><a href= 'QuizReview.php?user=$user&&access=$access'>$name</a></td>";
+            echo "<td><a href= 'StudentResults.php?user=$user&&access=$access'>$access</a></td>";
+            echo "</tr>";
+        }
+        echo"</tbody>";
+        echo"</table>";
 
-           echo "<tr>";
-           echo "<td><input type='checkbox' name='quizzes[]' value=".$access.
-           "></td>";
-           echo "<td><a href= 'QuizReview.php?user=$user&&access=$access'>$name</a></td>";
-           echo "<td><a href= 'StudentResults.php?user=$user&&access=$access'>$access</a></td>";
-           echo "</tr>";
-       }
-       echo "</tbody>";
-       echo "</table>";
+       $mysqli->close();
 
-       $mysqli - > close();
-
-       echo "<input type='hidden' name='user' value='$user'>"; ?>
+       echo "<input type='hidden' name='user' value='$user'>";
+       ?>

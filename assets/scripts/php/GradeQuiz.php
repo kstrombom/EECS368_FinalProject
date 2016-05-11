@@ -1,13 +1,13 @@
-<? php
+<?php
 /*
 author: Josiah Gray
 
 resources:
 
 */
-  ?>
+?>
 
-  <html>
+<html>
 <head>
   <title> Quiz Results </title>
 </head>

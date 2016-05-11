@@ -9,16 +9,15 @@ problem.generate = function() {
 
     var randomType = Math.floor((Math.random() * 4) + 1);
 
-    if (randomType == 4) {
+    if(randomType == 4){
         this.yVal = Math.floor((Math.random() * 10) + 1);
         var multiple = Math.floor((Math.random() * 10) + 1);
         this.xVal = this.yVal * multiple
-    }
-    else {
+    }else{
         this.xVal = Math.floor((Math.random() * 10) + 1);
         this.yVal = Math.floor((Math.random() * 10) + 1);
     }
-
+    
     if (randomType == 1) {
         this.question = this.xVal + " + " + this.yVal;
         this.options[0] = this.xVal + this.yVal;

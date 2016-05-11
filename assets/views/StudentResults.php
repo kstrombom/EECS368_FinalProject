@@ -1,7 +1,6 @@
 <html>
-
-<head>
-  <title>Student Scores</title>
+  <head>
+    <title>Student Scores</title>
   <!-- include css file to format student home page -->
   <link href="assets/styles/StudentHomeFormat.css" rel="stylesheet" type="text/css" />
   <!-- Latest compiled and minified CSS -->
@@ -13,32 +12,29 @@
 
 
 
-</head>
-
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">368 Project 3</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="Practice.html">Practice</a></li>
-        <li><a href="QuizSelect.html">Take Quiz</a></li>
-        <li><a href="TeacherLogin.html">Teacher Login</a></li>
-    </div>
-  </nav>
-  <div>
-    <?php include( '../scripts/php/StudentResultsTable.php') ?> </div>
+  </head>
+  <body>
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">368 Project 3</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="Practice.html">Practice</a></li>
+                <li><a href="QuizSelect.html">Take Quiz</a></li>
+                <li><a href="TeacherLogin.html">Teacher Login</a></li>
+        </div>
+    </nav>
+<div><?php include('../scripts/php/StudentResultsTable.php') ?> </div>
   <br>
   <br>
 
   <a href="Review.php?user=<?php echo $user; ?>">Return to homepage</a>
-  <footer class="footer">
+ <footer class="footer">
     <div class="container">
       <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
     </div>
   </footer>
-</body>
-
+  </body>
 </html>

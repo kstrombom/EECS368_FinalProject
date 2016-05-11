@@ -1,33 +1,35 @@
-    body {
+    body
+    {
       font-family: Arial;
     }
-    
-    table {
+
+  table
+  {
       border-collapse: collapse;
       width: 100%;
-    }
-    
-    th,
-    td,
-    tfoot {
+  }
+
+  th, td,tfoot
+  {
       text-align: left;
       padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #f2f2f2
-    }
-    
-    th,
-    tfoot {
+  }
+
+  tr:nth-child(even)
+  {
+    background-color: #f2f2f2
+  }
+
+  th,tfoot
+  {
       background-color: #480000;
       color: white;
-    }
-    
-    a {
-      background-color: #480000;
-      color: white;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 4px;
-    }
+  }
+  a
+  {
+    background-color: #480000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
