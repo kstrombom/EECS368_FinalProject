@@ -72,6 +72,6 @@ for($i=0;$i<$lengthOfQuestions;$i++)
   echo "Answers ".($i+1).": ".$Answers[$i]."<br><br>";
 }
 
-echo "<a href='../../views/Review.php?user=".$user."'>Return to homepage</a>";
+echo "<a class='btn btn-primary' href='../../views/Review.php?user=".$user."'>Return to homepage</a>";
 
 ?>

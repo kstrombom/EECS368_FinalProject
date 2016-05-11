@@ -24,25 +24,21 @@
                 <li><a href="Practice.html">Practice</a></li>
                 <li><a href="QuizSelect.html">Take Quiz</a></li>
                 <li><a href="TeacherLogin.html">Teacher Login</a></li>
+                 <li><a href="CreateTeacher.html">Teacher Sign Up</a></li>
         </div>
     </nav>
    <h2>Quizzes</h2>
-   
-   <small>*Click the access code to view student results</small><br>
-   <small>*Click the name to view the quiz created</small>
     <form action = "../scripts/php/ReviewDelete.php" id="delete" method = "post">
        <div><?php include('../scripts/php/ReviewTable.php') ?> </div>
-    <input type="submit" class="btn btn-primary" value="Delete" >
+    <input type="submit" class="btn btn-danger" value="Delete" >
+    
     </form>
 
-
-    <br>
-    <br>
-    <a class="button" href="CreateQuiz.php?user=<?php echo $user; ?>">Create Quiz Here</a>
+    <a class="btn btn-primary" href="CreateQuiz.php?user=<?php echo $user; ?>">Create Quiz</a>
     <br><br>
  <footer class="footer">
     <div class="container">
-      <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
+      <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link</a></p>
     </div>
   </footer>
  </body>

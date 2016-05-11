@@ -7,6 +7,12 @@ help checking if query returns nothing from stack overflow. http://stackoverflow
 help checking textbox entries before submitting from stack overflow. http://stackoverflow.com/questions/15997632/check-textbox-before-submitting
 */
 ?>
+	  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <?php
 //function that takes a row from an SQL query and displays a quiz question with a textbox to enter an answer
@@ -75,7 +81,7 @@ for a valid access code, query an SQL table for all questions associated with th
 
       echo "<input type='hidden' value='".$code."' id='quizCode' name='quizCode'>";
 
-      echo "Enter your name: ";
+      echo "<label for='usr'>User Name:</label>";
       echo "<input type='text' id='studentName' name='studentName'> <br><br>";
 
       while($row = $result->fetch_array())
@@ -83,7 +89,7 @@ for a valid access code, query an SQL table for all questions associated with th
         setupQuestion($row);
       }
 
-      echo "<input type='submit' value='Grade Quiz'>";
+      echo "<input class='btn btn-primary' type='submit' value='Grade Quiz'>";
       echo "</form>";
     }
 
@@ -96,7 +102,7 @@ for a valid access code, query an SQL table for all questions associated with th
   ?>
 
   <br>
-  <a href="../../../index.html"> Return to Student Home page </a>
+  <a class="btn btn-primary" href="../../../index.html"> Return to Student Home page </a>
 </body>
 
 </html>

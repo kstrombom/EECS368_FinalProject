@@ -24,6 +24,7 @@
                 <li><a href="Practice.html">Practice</a></li>
                 <li><a href="QuizSelect.html">Take Quiz</a></li>
                 <li><a href="TeacherLogin.html">Teacher Login</a></li>
+                 <li><a href="CreateTeacher.html">Teacher Sign Up</a></li>
         </div>
     </nav>
 
@@ -41,6 +42,8 @@
   <?php include('../scripts/php/QuizList.php') ?>
   </tbody>
 </table>
+<a class="btn btn-primary" href="Review.php?user=<?php echo $user; ?>">Return to homepage</a>
+<br>
  <footer class="footer">
     <div class="container">
       <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>

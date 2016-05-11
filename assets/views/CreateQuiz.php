@@ -28,6 +28,7 @@
                 <li><a href="Practice.html">Practice</a></li>
                 <li><a href="QuizSelect.html">Take Quiz</a></li>
                 <li><a href="TeacherLogin.html">Teacher Login</a></li>
+                <li><a href="CreateTeacher.html">Teacher Sign Up</a></li>
         </div>
     </nav>
 

@@ -1,3 +1,4 @@
+
        <?php
        $user=$_GET['user'];
 
@@ -16,9 +17,9 @@
         echo"<table  class='table table-bordered' name='QuizList'>";
         echo"<thead class='thead-inverse'>";
         echo"<tr>";
-        echo"<th>Delete?</th>";
-        echo"<th>Name</th>";
-        echo"<th>Access Code</th>";
+        echo"<th>Delete<h6>check box to delete entry</h6></th>";
+        echo"<th>Name <h6>click to view quiz</h6></th>";
+        echo"<th>Access Code<h6>click to view student scores</h6></th>";
         echo"</tr>";
         echo"</thead>;<tbody>";
         for($i=0; $i<$num; $i++)
