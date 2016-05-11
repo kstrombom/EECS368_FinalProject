@@ -26,8 +26,9 @@
                 <li><a href="CreateTeacher.html">Teacher Sign Up</a></li>
         </div>
     </nav>
-    <div class="container">
-   <h2>Quizzes</h2>
+    <div class="container" align="center">
+   <h2>Quizzes</h2></div>
+   <div class="container">
     <form action = "../scripts/php/ReviewDelete.php" id="delete" method = "post">
        <div class="container">
            
@@ -82,7 +83,7 @@
     </div>
     <br><br>
  <footer class="footer">
-    <div class="container">
+    <div class="container" align="center">
       <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link</a></p>
     </div>
   </footer>

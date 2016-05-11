@@ -52,7 +52,7 @@
 
     <button type="button" class="btn btn-primary" onclick="addInput('dynamicInput');">Add a question</button>
  <footer class="footer">
-    <div class="container">
+    <div class="container" align="center">
       <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
     </div>
   </footer>

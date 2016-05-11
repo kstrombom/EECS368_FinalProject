@@ -27,14 +27,15 @@
                  <li><a href="CreateTeacher.html">Teacher Sign Up</a></li>
         </div>
     </nav>
-<div><?php include('../scripts/php/StudentResultsTable.php') ?> </div>
+<div class="container" align="center"><?php include('../scripts/php/StudentResultsTable.php') ?> </div>
   <br>
   <br>
-
+  <div class="container" align="center">
   <a class="btn btn-primary" href="Review.php?user=<?php echo $user; ?>">Return to homepage</a>
+  </div>
   <br>
  <footer class="footer">
-    <div class="container">
+    <div class="container" align="center">
       <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
     </div>
   </footer>
