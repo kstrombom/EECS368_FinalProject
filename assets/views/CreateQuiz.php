@@ -21,7 +21,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">368 Project 3</a>
+                <a class="navbar-brand" href="../../index.html">368 Project 3</a>
             </div>
             <ul class="nav navbar-nav">
                 <a href="../../index.html">Home</a></li>

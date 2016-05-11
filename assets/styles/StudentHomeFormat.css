@@ -15,9 +15,9 @@ p {
   font-size: 16pt;
 }
 
-a {
+#frameLink {
   color: blue;
-  font-size: 15pt;
+  font-size: 16pt;
 }
 
 a:hover {
