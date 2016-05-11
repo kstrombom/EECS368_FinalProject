@@ -29,25 +29,26 @@ function canvasFunc() {
 
 	var i = 60; //game time is 60 seconds
 	function onTimer() {
-  		document.getElementById('mycounter').innerHTML = i + "s left";
-  		i--;
-  		if (i < 0) { //if time is up
+		document.getElementById('mycounter').innerHTML = i + "s left";
+		i--;
+		if (i < 0) { //if time is up
 			ctx.fillStyle = "lightblue";
-    		ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+			ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 			ctx.fillStyle = "black"
-			ctx.fillText("Times Up! Your final score was " + score + " points" , canvasWidth/2, canvasHeight/2);
-			ctx.fillText("You got " + numCorrect + " / " + totalQuestions + " correct", canvasWidth/2, canvasHeight/2 + 25)
-		}else{
-    		setTimeout(onTimer, 1000);
-  		}
+			ctx.fillText("Times Up! Your final score was " + score + " points", canvasWidth / 2, canvasHeight / 2);
+			ctx.fillText("You got " + numCorrect + " / " + totalQuestions + " correct", canvasWidth / 2, canvasHeight / 2 + 25)
+		}
+		else {
+			setTimeout(onTimer, 1000);
+		}
 	}
 
-	function setup(){
+	function setup() {
 		ctx.clearRect(0, 0, canvasWidth, canvasHeight); //clear screen
 		//create red backgrounds
 		ctx.fillStyle = "red";
-		ctx.fillRect(0,550,175,600); //red behind score
-		ctx.fillRect(canvas.width/2 - 50, canvas.height/2 - 40, 100, 60); //red behind question
+		ctx.fillRect(0, 550, 175, 600); //red behind score
+		ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 40, 100, 60); //red behind question
 		ctx.fillRect(425, 450, 150, 150); //red at bottom middle
 
 		problem.generate(); //create random problem
@@ -72,15 +73,17 @@ function canvasFunc() {
 		ctx.fillStyle = "black";
 		ctx.textAlign = "center";
 
-		if(correctOption == 0 && bool == true){
+		if (correctOption == 0 && bool == true) {
 			ctx.fillText(problem.options[0], (80 + 175 / 2), (175 / 2));
 			ctx.fillText(problem.options[1], (410 + 175 / 2), (175 / 2));
 			ctx.fillText(problem.options[2], (730 + 175 / 2), (175 / 2));
-		}else if(correctOption == 1 && bool == true){
+		}
+		else if (correctOption == 1 && bool == true) {
 			ctx.fillText(problem.options[1], (80 + 175 / 2), (175 / 2));
 			ctx.fillText(problem.options[0], (410 + 175 / 2), (175 / 2));
 			ctx.fillText(problem.options[2], (730 + 175 / 2), (175 / 2));
-		}else if(correctOption == 2 && bool == true){
+		}
+		else if (correctOption == 2 && bool == true) {
 			ctx.fillText(problem.options[1], (80 + 175 / 2), (175 / 2));
 			ctx.fillText(problem.options[2], (410 + 175 / 2), (175 / 2));
 			ctx.fillText(problem.options[0], (730 + 175 / 2), (175 / 2));
@@ -94,7 +97,7 @@ function canvasFunc() {
 
 	function question() {
 		return problem.question;
-    }
+	}
 
 	//when mouse is clicked
 	function handleMouseDown(e) {
@@ -103,7 +106,7 @@ function canvasFunc() {
 		isDragging = true;
 	}
 
-    //when mouse is unclicked
+	//when mouse is unclicked
 	function handleMouseUp(e) {
 		canMouseX = parseInt(e.clientX - offsetX);
 		canMouseY = parseInt(e.clientY - offsetY);
@@ -127,40 +130,44 @@ function canvasFunc() {
 			ctx.drawImage(hoop1, 80, 25);
 			ctx.drawImage(hoop2, 410, 25);
 			ctx.drawImage(hoop3, 730, 25);
-			if(correctOption == 0 && bool == true){
+			if (correctOption == 0 && bool == true) {
 				ctx.fillText(problem.options[0], (80 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[1], (410 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[2], (730 + 175 / 2), (175 / 2));
-			}else if(correctOption == 1 && bool == true){
+			}
+			else if (correctOption == 1 && bool == true) {
 				ctx.fillText(problem.options[1], (80 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[0], (410 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[2], (730 + 175 / 2), (175 / 2));
-			}else if(correctOption == 2 && bool == true){
+			}
+			else if (correctOption == 2 && bool == true) {
 				ctx.fillText(problem.options[1], (80 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[2], (410 + 175 / 2), (175 / 2));
 				ctx.fillText(problem.options[0], (730 + 175 / 2), (175 / 2));
 			}
 
 			ctx.fillStyle = "red";
-			ctx.fillRect(0,550,175,600);
-			ctx.fillRect(canvas.width/2 - 50, canvas.height/2 - 40, 100, 60);
-			if(bool == true){
+			ctx.fillRect(0, 550, 175, 600);
+			ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 40, 100, 60);
+			if (bool == true) {
 				ctx.fillRect(425, 450, 150, 150);
-			}else{
+			}
+			else {
 				ctx.fillStyle = "white";
 				ctx.fillRect(425, 450, 150, 150);
 				ctx.fillStyle = "black";
-				if(isCorrect){
-					ctx.fillText("Correct!", canvasWidth/2, 500);
-					ctx.fillText("+2 pts", canvasWidth/2, 525);
-					ctx.fillText("Drag Here", canvasWidth/2, 575);
-				}else{
-					ctx.fillText("Wrong!", canvasWidth/2, 500);
-					ctx.fillText("-2 pts", canvasWidth/2, 525);
-					ctx.fillText("Drag Here", canvasWidth/2, 575);
+				if (isCorrect) {
+					ctx.fillText("Correct!", canvasWidth / 2, 500);
+					ctx.fillText("+2 pts", canvasWidth / 2, 525);
+					ctx.fillText("Drag Here", canvasWidth / 2, 575);
+				}
+				else {
+					ctx.fillText("Wrong!", canvasWidth / 2, 500);
+					ctx.fillText("-2 pts", canvasWidth / 2, 525);
+					ctx.fillText("Drag Here", canvasWidth / 2, 575);
 				}
 			}
-			if(bool == true){
+			if (bool == true) {
 				ctx.fillStyle = "black";
 				ctx.fillText(question(), canvas.width / 2, canvas.height / 2);
 			}
@@ -180,35 +187,41 @@ function canvasFunc() {
 			numCorrect++;
 			totalQuestions++;
 			setup();
-		}else if (x >= 390 && x < 470 && y >= 25 && y < 75 && correctOption == 1 && bool == true) { //hoop2 correct
+		}
+		else if (x >= 390 && x < 470 && y >= 25 && y < 75 && correctOption == 1 && bool == true) { //hoop2 correct
 			score += 2;
 			bool = false;
 			isCorrect = true;
 			numCorrect++;
 			totalQuestions++;
 			setup();
-		}else if (x >= 710 && x < 790 && y >= 25 && y < 75 && correctOption == 2 && bool == true) { //hoop3 correct
+		}
+		else if (x >= 710 && x < 790 && y >= 25 && y < 75 && correctOption == 2 && bool == true) { //hoop3 correct
 			score += 2;
 			bool = false;
 			isCorrect = true;
 			numCorrect++;
 			totalQuestions++;
 			setup();
-		}else if(x >= 425 && x < 575 && y >= 450 && y < 600){ //red/white zone
+		}
+		else if (x >= 425 && x < 575 && y >= 450 && y < 600) { //red/white zone
 			bool = true;
-		}else if (x >= 60 && x < 140 && y >= 25 && y < 75 && correctOption != 0 && bool == true) { //hoop1 wrong
+		}
+		else if (x >= 60 && x < 140 && y >= 25 && y < 75 && correctOption != 0 && bool == true) { //hoop1 wrong
 			score -= 2;
 			bool = false;
 			isCorrect = false;
 			totalQuestions++;
 			setup();
-		}else if (x >= 390 && x < 470 && y >= 25 && y < 75 && correctOption != 1 && bool == true) { //hoop2 wrong
+		}
+		else if (x >= 390 && x < 470 && y >= 25 && y < 75 && correctOption != 1 && bool == true) { //hoop2 wrong
 			score -= 2;
 			bool = false;
 			isCorrect = false;
 			totalQuestions++;
 			setup();
-		}else if (x >= 710 && x < 790 && y >= 25 && y < 75 && correctOption != 2 && bool == true) { //hoop3 wrong
+		}
+		else if (x >= 710 && x < 790 && y >= 25 && y < 75 && correctOption != 2 && bool == true) { //hoop3 wrong
 			score -= 2;
 			bool = false;
 			isCorrect = false;

@@ -1,4 +1,4 @@
-<?php
+<? php
 /*
 author: Josiah Gray
 
@@ -6,15 +6,18 @@ resources:
 help checking if query returns nothing from stack overflow. http://stackoverflow.com/questions/21258620/check-if-the-query-results-empty-row-mysqli
 help checking textbox entries before submitting from stack overflow. http://stackoverflow.com/questions/15997632/check-textbox-before-submitting
 */
-?>
+  ?>
 
-<?php
-//function that takes a row from an SQL query and displays a quiz question with a textbox to enter an answer
-function setupQuestion($row){
-  echo $row["q_number"].") ".$row["q_text"]." ";
-  echo "<input type='number' maxlength='6' size='6' id='Q".$row["q_number"]."' name='Q".$row["q_number"]."'> <br><br>";
-}
-?>
+  <? php
+  //function that takes a row from an SQL query and displays a quiz question with a textbox to enter an answer
+function setupQuestion($row) {
+  echo $row["q_number"].
+  ") ".$row["q_text"].
+  " ";
+  echo "<input type='number' maxlength='6' size='6' id='Q".$row["q_number"].
+  "' name='Q".$row["q_number"].
+  "'> <br><br>";
+} ?>
 
 <html>
 <head>
