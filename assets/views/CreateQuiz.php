@@ -2,8 +2,6 @@
   <head>
     <title>Create Quiz</title>
     <meta content="UTF-8">
-  <!-- include css file to format student home page -->
-  <link href="assets/styles/StudentHomeFormat.css" rel="stylesheet" type="text/css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -24,15 +22,14 @@
                 <a class="navbar-brand" href="../../index.html">368 Project 3</a>
             </div>
             <ul class="nav navbar-nav">
-                <a href="../../index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="Practice.html">Practice</a></li>
                 <li><a href="QuizSelect.html">Take Quiz</a></li>
                 <li><a href="TeacherLogin.html">Teacher Login</a></li>
                 <li><a href="CreateTeacher.html">Teacher Sign Up</a></li>
         </div>
     </nav>
-
-
+<div class="container">
     <form action = "../scripts/php/CreateQuiz.php" name="Questions" method = "post">
       <label for="quizName">Quiz Name:</label>
       <input name="QuizName" class="form-control" type="text" id="quizName"><br><br>
@@ -49,8 +46,10 @@
       </div>
       <input name = "submit" type="submit"  class="btn btn-primary" value = "Create Quiz">
     </form>
+     <button type="button" class="btn btn-primary" onclick="addInput('dynamicInput');">Add a question</button>
+    </div>
 
-    <button type="button" class="btn btn-primary" onclick="addInput('dynamicInput');">Add a question</button>
+   
  <footer class="footer">
     <div class="container" align="center">
       <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>

@@ -29,7 +29,7 @@
     </nav>
 
   <h2><?php echo $name; ?></h2>
-
+    <div class="containter">
   <table class="table table-bordered" name="QuizList">
       <thead class="thead-inverse">
       <tr>
@@ -43,6 +43,7 @@
   </tbody>
 </table>
 <a class="btn btn-primary" href="Review.php?user=<?php echo $user; ?>">Return to homepage</a>
+</div>
 <br>
  <footer class="footer">
     <div class="container" align="center">
