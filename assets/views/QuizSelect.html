@@ -5,7 +5,15 @@ author: Josiah Gray
 
 <head>
   <title> Quiz Selection </title>
-  	<link rel="stylesheet" type="text/css" href="../styles/siteStandard.css">
+  	
+  	 <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../styles/siteStandard.css">-->
+
 </head>
 
 <!--
@@ -13,6 +21,20 @@ set up quiz selection page
 page should allow student to enter an access code for a pre-made test
 -->
 <body>
+  
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">368 Project 3</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="Practice.html">Practice</a></li>
+                <li class="active"><a href="QuizSelect.html">Take Quiz</a></li>
+                <li><a href="TeacherLogin.html">Teacher Login</a></li>
+        </div>
+    </nav>
+  <div class="container">
   <h1> Quiz Selection </h1>
 
   <form action="../scripts/php/TakeQuiz.php" method="post">
@@ -21,14 +43,21 @@ page should allow student to enter an access code for a pre-made test
       Then, click the start button to begin.
     </p>
     <br>
-
-    Quiz Code:
-    <input type="text" id="quizCode" name="quizCode" maxlength="6"> <br><br>
-    <input type="submit" value="Start!"> <br>
+</div>
+<div class="container">
+   <label for="quizCode">Quiz Code:</label>
+    <input type="text" id="quizCode" name="quizCode" class="form-control" maxlength="6"> <br><br>
+    <input type="submit" class="btn btn-primary" value="Start!"> <br>
   </form>
   <br>
-
-  <a href="../../index.html"> Return to Student Home page </a>
+  
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
+    </div>
+  </footer>
 </body>
 
 </html>

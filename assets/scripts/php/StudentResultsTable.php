@@ -31,11 +31,13 @@
       }
       else
       { 
-        echo"<table name='QuizList'>";
+        echo"<table class='table table-bordered' name='QuizList'>";
+        echo"<thead class='thead-inverse'>";
         echo"<tr>";
         echo"<th>Student</th>";
         echo"<th>Score</th>";
         echo"</tr>";
+        echo"</thead>";
 
         for($i=0; $i<$num; $i++)
         {

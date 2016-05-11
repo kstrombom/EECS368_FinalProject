@@ -13,13 +13,14 @@
         $result = $mysqli -> query($select);
         $num = $result -> num_rows;
         
-        echo"<table name='QuizList'>";
+        echo"<table  class='table table-bordered' name='QuizList'>";
+        echo"<thead class='thead-inverse'>";
         echo"<tr>";
         echo"<th>Delete?</th>";
         echo"<th>Name</th>";
         echo"<th>Access Code</th>";
         echo"</tr>";
-
+        echo"</thead>;<tbody>";
         for($i=0; $i<$num; $i++)
         {
             $row = $result -> fetch_assoc();
@@ -32,6 +33,7 @@
             echo "<td><a href= 'StudentResults.php?user=$user&&access=$access'>$access</a></td>";
             echo "</tr>";
         }
+        echo"</tbody>";
         echo"</table>";
 
        $mysqli->close();

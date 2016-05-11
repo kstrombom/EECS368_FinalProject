@@ -8,52 +8,79 @@ author: Josiah Gray
   <script type="text/javascript" src="assets/scripts/js/jquery-1.12.3.js"></script>
   <!-- include css file to format student home page -->
   <link href="assets/styles/StudentHomeFormat.css" rel="stylesheet" type="text/css" />
-  <script src="js/bootstrap.min.js"></script>
-   <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
 </head>
 
 <!--
 set up student home page
 (include links to practice game and quiz)
---><div class="container">
-<body background="assets/images/school.gif">
+-->
 
-  <form>
-    <h1> Student Home </h1>
 
-    <p>
-      Welcome!
-      <br> What do you want to do?
-      <br>
-    </p>
+<body background style="background-image:url('/assets/images/school.gif'); background-size: cover;">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
 
-    <a href="assets/views/Practice.html"> Practice! </a>
-    <br>
-    <br>
-    <a href="assets/views/QuizSelect.html"> Take a quiz! </a>
-    <br>
-    <br>
+        <a class="navbar-brand" href="#">368 Project 3</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="assets/views/Practice.html">Practice</a></li>
+        <li><a href="assets/views/QuizSelect.html">Take Quiz</a></li>
+        <li><a href="assets/views/TeacherLogin.html">Teacher Login</a></li>
+    </div>
+  </nav>
 
-  </form>
+  <div class="container">
 
-  <form>
-    <h1> Teacher Home </h1>
+    <div class="span6">
+      <form>
+        <h1> Student Home </h1>
+        <p>
+          Welcome!
+          <br> What do you want to do?
+          <br>
+        </p>
 
-    <p>
-      Welcome!
-      <br> What do you want to do?
-      <br>
-    </p>
+        <a href="assets/views/Practice.html"> Practice! </a>
+        <br>
+        <br>
+        <a href="assets/views/QuizSelect.html"> Take a quiz! </a>
+        <br>
+        <br>
+      </form>
+    </div>
+    <div class="span6">
+      <form>
+        <h1> Teacher Home </h1>
+        <p>Welcome!
+          <br> What do you want to do?
+          <br>
+        </p>
+        <a href="assets/views/TeacherLogin.html"> Login </a>
+        <br>
+        <br>
+        <a href="assets/views/CreateTeacher.html"> Create an account </a>
+        <br>
+        <br>
+      </form>
+    </div>
+  </div>
+  <!-- end of container -->
 
-    <a href="assets/views/TeacherLogin.html"> Login </a>
-    <br>
-    <br>
-    <a href="assets/views/CreateTeacher.html"> Create an account </a>
-    <br>
-    <br>
-
-  </form>
-</div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
+    </div>
+  </footer>
 </body>
 
 </html>

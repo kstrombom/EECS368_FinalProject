@@ -1,19 +1,55 @@
 <!-- CSS styling from W3 schools -->
 
 <html>
- <head>
-  <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../styles/siteStandard.css">
-  <title>Create User</title>
- </head>
- <body>
-   <div>
-   <form action="../scripts/php/CreateTeacher.php" id="add" method ="post">
-        Username   <input type="text" name="username" ><br>
-        Password (Max of 10 characters)   <input type="text" name="password" ><br>
-   <input type="submit" value="Create User">
 
-   </form>
-  </div>
- </body>
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <title>Create User</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">368 Project 3</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="Practice.html">Practice</a></li>
+                <li><a href="QuizSelect.html">Take Quiz</a></li>
+                <li><a href="TeacherLogin.html">Teacher Login</a></li>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="../scripts/php/CreateTeacher.php" id="add" method="post">
+            <div class="form-group">
+                <label for="usr">User Name:</label>
+                <input type="text" name="username" class="form-control"  id="usr">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="pw">Password:(Max of 10 characters)</label>
+                <input type="text" name="password" class="form-control" id="pw">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Create User">
+            </div>
+
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">EECS 368 Group Project <a href="https://github.com/kstrombom/EECS368_FinalProject">Github Link Here </a></p>
+        </div>
+    </footer>
+</body>
+
 </html>
