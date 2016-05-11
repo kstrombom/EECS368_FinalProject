@@ -1,0 +1,34 @@
+<!--
+author: Josiah Gray
+-->
+<html>
+
+<head>
+  <title> Quiz Selection </title>
+  	<link rel="stylesheet" type="text/css" href="../styles/siteStandard.css">
+</head>
+
+<!--
+set up quiz selection page
+page should allow student to enter an access code for a pre-made test
+-->
+<body>
+  <h1> Quiz Selection </h1>
+
+  <form action="../scripts/php/TakeQuiz.php" method="post">
+    <p>
+      In the box below, please enter the code for the quiz provided by your teacher. <br>
+      Then, click the start button to begin.
+    </p>
+    <br>
+
+    Quiz Code:
+    <input type="text" id="quizCode" name="quizCode" maxlength="6"> <br><br>
+    <input type="submit" value="Start!"> <br>
+  </form>
+  <br>
+
+  <a href="../../index.html"> Return to Student Home page </a>
+</body>
+
+</html>
